@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MedRed — Execution &amp; Marketing Briefing 03 · Launch in 6 Weeks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FAFBFC; --card:#FFFFFF; --ink:#0B2230; --muted:#5B6B75; --line:#E3E9ED;
+    --teal:#0E7C6B; --teal-soft:#E4F3F0; --risk:#C4322B; --risk-soft:#FBEAE9;
+    --amber:#B26A00; --amber-soft:#FCF1DE; --blue:#1B5E9E; --blue-soft:#E7F0F9;
+    --violet:#6B4FA0; --violet-soft:#F0EBF8; --gold:#8A6D00; --gold-soft:#FBF6E0;
+    --road:#12303F; --dash:#F4B942;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'IBM Plex Sans',sans-serif;background:var(--paper);color:var(--ink);line-height:1.6;font-size:16px}
+  .mono{font-family:'IBM Plex Mono',monospace}
+
+  header{background:var(--ink);color:#fff;padding:40px 24px 0}
+  .head-inner{max-width:1100px;margin:0 auto}
+  .report-strip{display:flex;flex-wrap:wrap;gap:14px 30px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#8FB6C4;border-bottom:1px solid rgba(255,255,255,.15);padding-bottom:14px}
+  .report-strip b{color:#fff;font-weight:600}
+  h1{font-size:clamp(30px,5vw,50px);font-weight:700;letter-spacing:-.02em;margin:22px 0 6px}
+  h1 .plus{color:#3FBFA8}
+  .tagline{color:#B9CCD5;font-size:17px;max-width:760px;margin-bottom:8px}
+  .bigclaim{font-family:'IBM Plex Mono',monospace;font-size:13px;color:#3FBFA8;margin-bottom:26px;letter-spacing:.04em}
+  nav{display:flex;gap:4px;overflow-x:auto}
+  nav button{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.04em;background:transparent;border:none;color:#9FB8C2;padding:12px 13px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+  nav button:hover{color:#fff}
+  nav button.active{color:#fff;border-bottom-color:#3FBFA8;font-weight:600}
+
+  main{max-width:1100px;margin:0 auto;padding:40px 24px 90px}
+  section.page{display:none;animation:fade .3s ease}
+  section.page.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){section.page{animation:none}}
+
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:8px}
+  h2{font-size:28px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  h2 .count{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--muted);font-weight:500}
+  .lede{color:var(--muted);max-width:780px;margin-bottom:28px;font-size:16.5px}
+
+  .chip{font-family:'IBM Plex Mono',monospace;font-size:10.5px;font-weight:600;letter-spacing:.05em;padding:3px 8px;border-radius:4px;display:inline-block;text-transform:uppercase;white-space:nowrap}
+  .chip.v1{background:var(--teal-soft);color:var(--teal)}
+  .chip.p2{background:var(--blue-soft);color:var(--blue)}
+  .chip.p3{background:var(--violet-soft);color:var(--violet)}
+  .chip.rev{background:var(--amber-soft);color:var(--amber)}
+  .chip.free{background:#EEF2F4;color:var(--muted)}
+  .chip.psy{background:var(--violet-soft);color:var(--violet)}
+  .chip.risk{background:var(--risk-soft);color:var(--risk)}
+  .chip.win{background:var(--teal-soft);color:var(--teal)}
+
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:16px;margin-bottom:36px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px;position:relative}
+  .card .num{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);letter-spacing:.08em}
+  .card h3{font-size:17px;font-weight:600;margin:5px 0 7px;letter-spacing:-.01em}
+  .card p{font-size:14px;color:var(--muted)}
+  .card .story{font-style:italic;color:var(--ink);font-size:14px;background:var(--teal-soft);border-radius:8px;padding:10px 12px;margin:8px 0}
+  .card .say{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);font-weight:600;margin-top:10px}
+  .card .why{margin-top:8px;font-size:13px;color:var(--muted)}
+  .card .why b{color:var(--ink)}
+  .card .chiprow{margin-top:12px;display:flex;gap:5px;flex-wrap:wrap}
+
+  .grouphead{display:flex;align-items:baseline;gap:12px;margin:38px 0 14px;border-bottom:2px solid var(--ink);padding-bottom:8px}
+  .grouphead h3{font-size:20px;font-weight:700}
+  .grouphead .gcount{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--muted)}
+  .groupwhy{font-size:14.5px;color:var(--muted);max-width:780px;margin-bottom:16px}
+
+  table.vs{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:26px;font-size:14px}
+  table.vs th,table.vs td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  table.vs tr:last-child td{border-bottom:none}
+  table.vs th{font-family:'IBM Plex Mono',monospace;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:#F4F7F9;font-weight:600}
+  table.vs td:first-child{font-weight:600}
+  table.vs td .tick{color:var(--teal);font-weight:700}
+  .tablewrap{overflow-x:auto;margin-bottom:26px}
+  .tablewrap table.vs{margin-bottom:0;min-width:640px}
+
+  .bigbox{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--teal);border-radius:10px;padding:24px 26px;margin-bottom:20px}
+  .bigbox.amber{border-left-color:var(--amber)}
+  .bigbox.violet{border-left-color:var(--violet)}
+  .bigbox.risk{border-left-color:var(--risk)}
+  .bigbox.blue{border-left-color:var(--blue)}
+  .bigbox h3{font-size:19px;font-weight:700;margin-bottom:8px}
+  .bigbox p{font-size:14.5px;color:var(--muted)}
+  .bigbox ul{margin:10px 0 0 18px;font-size:14.5px;color:var(--muted)}
+  .bigbox ol{margin:10px 0 0 18px;font-size:14.5px;color:var(--muted)}
+  .bigbox li{margin-bottom:6px}
+  .bigbox b{color:var(--ink)}
+
+  .statrow{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin-bottom:30px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;text-align:center}
+  .stat .n{font-family:'IBM Plex Mono',monospace;font-size:28px;font-weight:600;color:var(--teal)}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:4px}
+
+  .phase-block{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:22px;margin-bottom:14px;display:grid;grid-template-columns:130px 1fr;gap:20px}
+  .phase-block .pnum{font-family:'IBM Plex Mono',monospace;font-weight:600;color:var(--blue);font-size:13px;letter-spacing:.06em}
+  .phase-block .pnum.done{color:var(--teal)}
+  .phase-block h3{font-size:17px;margin-bottom:5px}
+  .phase-block p{font-size:14px;color:var(--muted)}
+  .phase-block ul{margin:8px 0 0 18px;font-size:14px;color:var(--muted)}
+  .phase-block li{margin-bottom:4px}
+  .phase-block b{color:var(--ink)}
+  @media(max-width:600px){.phase-block{grid-template-columns:1fr;gap:6px}}
+
+  /* Road to 10,000 */
+  .roadwrap{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 10px 8px;margin-bottom:30px;overflow-x:auto}
+  .roadwrap svg{min-width:920px;width:100%;height:auto;display:block}
+  .road-cap{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:var(--muted);text-align:center;padding:6px 12px 10px;letter-spacing:.06em;text-transform:uppercase}
+
+  /* Persona cards */
+  .team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-bottom:32px}
+  .persona{background:var(--card);border:1px solid var(--line);border-top:5px solid var(--teal);border-radius:10px;padding:20px}
+  .persona.p-online{border-top-color:var(--violet)}
+  .persona.p-mp{border-top-color:var(--blue)}
+  .persona.p-od{border-top-color:var(--amber)}
+  .persona .role{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .persona h3{font-size:19px;margin:4px 0 6px}
+  .persona p{font-size:13.5px;color:var(--muted)}
+  .persona .tg{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--teal);font-weight:600;margin-top:10px}
+
+  /* Phone wireframes */
+  .phones{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-bottom:30px}
+  .phone{border:2.5px solid var(--ink);border-radius:26px;background:#fff;padding:16px 13px 14px;min-height:360px;position:relative}
+  .phone .cap{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:10px}
+  .ui{border-radius:8px;margin-bottom:8px;font-size:12px;padding:8px 10px}
+  .ui.bar{background:#EEF2F4;color:var(--muted)}
+  .ui.hero{background:var(--teal);color:#fff;font-weight:700;text-align:center;padding:18px 10px;font-size:14px}
+  .ui.soft{background:var(--teal-soft);color:var(--teal);font-weight:600}
+  .ui.warn{background:var(--amber-soft);color:var(--amber);font-weight:600}
+  .ui.card2{border:1px solid var(--line);color:var(--ink)}
+  .ui.voice{background:var(--violet-soft);color:var(--violet);font-weight:600;text-align:center}
+  .ui.pay{background:var(--ink);color:#fff;text-align:center;font-weight:600}
+  .tabsline{display:flex;justify-content:space-between;border-top:1px solid var(--line);padding-top:8px;margin-top:10px;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--muted);text-align:center}
+  .tabsline span{flex:1}
+  .tabsline .on{color:var(--teal);font-weight:700}
+
+  .script{background:var(--ink);color:#DCE9EF;border-radius:10px;padding:20px 22px;font-size:14.5px;margin-bottom:18px}
+  .script .who{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#3FBFA8;margin-bottom:8px}
+  .script b{color:#fff}
+  .script p{margin-bottom:8px}
+  .script p:last-child{margin-bottom:0}
+
+  footer{border-top:1px solid var(--line);padding:26px 24px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="head-inner">
+    <div class="report-strip">
+      <span>DOC · <b>EXECUTION BRIEFING 03</b></span>
+      <span>DATE · <b>08 JUL 2026</b></span>
+      <span>PREPARED BY · <b>PRASHANT (CEO · COO · CMO VIEW)</b></span>
+      <span>STATUS · <b>LAUNCH CLOCK RUNNING — 6 WEEKS</b></span>
+    </div>
+    <h1>MedRed<span class="plus">+</span> · Execution &amp; Marketing Plan</h1>
+    <p class="tagline">Briefing 02 was the map — 42 features, the whole war. Briefing 03 is the marching order: what the four of us do every week to launch in 6 weeks and reach 10,000 families in 90 days after launch.</p>
+    <p class="bigclaim">4 PEOPLE · 6-WEEK BUILD · 8-FEATURE LAUNCH · 10,000 DOWNLOADS BY DAY 90</p>
+    <nav id="nav">
+      <button class="active" data-p="goal">The Goal</button>
+      <button data-p="features">Features, Simply</button>
+      <button data-p="phases">Launch Phases</button>
+      <button data-p="design">App Design</button>
+      <button data-p="team">Team Playbooks</button>
+      <button data-p="dev">Dev Sprint</button>
+      <button data-p="score">Scoreboard</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ TAB 1: THE GOAL ============ -->
+<section class="page active" id="goal">
+  <p class="eyebrow">Read this page first — everything else serves it</p>
+  <h2>One sentence. One price. One number.</h2>
+  <p class="lede"><b>The sentence:</b> "Report ki photo bhejo, apni bhasha mein samajh lo — 30 second mein." <b>The price:</b> ₹49 for a real doctor to confirm. <b>The number:</b> 10,000 downloads in the first 90 days after launch. If a task doesn't push one of these three, it waits.</p>
+
+  <div class="statrow">
+    <div class="stat"><div class="n">6 wks</div><div class="l">from today to Play Store launch (Week 1 already done ✓)</div></div>
+    <div class="stat"><div class="n">8</div><div class="l">features at launch — not 42. The rest come in waves.</div></div>
+    <div class="stat"><div class="n">10,000</div><div class="l">downloads by Day 90 (1,500 → 5,000 → 10,000)</div></div>
+    <div class="stat"><div class="n">40%</div><div class="l">of installs must upload a report — the REAL success number</div></div>
+  </div>
+
+  <div class="roadwrap">
+    <svg viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Road map from build start to 10,000 downloads">
+      <!-- asphalt -->
+      <path d="M 60 290 L 850 290 Q 930 290 930 240 Q 930 195 850 195 L 190 195 Q 110 195 110 148 Q 110 100 190 100 L 880 100"
+            fill="none" stroke="#12303F" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- centre dashes -->
+      <path d="M 60 290 L 850 290 Q 930 290 930 240 Q 930 195 850 195 L 190 195 Q 110 195 110 148 Q 110 100 190 100 L 880 100"
+            fill="none" stroke="#F4B942" stroke-width="3" stroke-dasharray="14 12" stroke-linecap="round"/>
+
+      <!-- LANE 1 pins (left to right) -->
+      <circle cx="100" cy="290" r="12" fill="#0E7C6B" stroke="#fff" stroke-width="4"/>
+      <text x="100" y="325" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#0B2230">WEEK 0–4 · BUILD</text>
+      <text x="100" y="342" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#5B6B75">Prashant ships · marketers map the ground</text>
+
+      <circle cx="430" cy="290" r="12" fill="#0E7C6B" stroke="#fff" stroke-width="4"/>
+      <text x="430" y="325" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#0B2230">WEEK 5 · BETA</text>
+      <text x="430" y="342" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#5B6B75">60 families test (20 per marketer)</text>
+
+      <circle cx="740" cy="290" r="14" fill="#C4322B" stroke="#fff" stroke-width="4"/>
+      <text x="740" y="325" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13.5" font-weight="700" fill="#C4322B">WEEK 6 · LAUNCH</text>
+      <text x="740" y="342" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#5B6B75">Play Store live · all QR posters activate</text>
+
+      <!-- LANE 2 pins (right to left) -->
+      <circle cx="700" cy="195" r="12" fill="#1B5E9E" stroke="#fff" stroke-width="4"/>
+      <text x="700" y="165" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#0B2230">DAY 30 · 1,500</text>
+      <text x="700" y="181" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#5B6B75">QR points + launch reels do the work</text>
+
+      <circle cx="330" cy="195" r="12" fill="#1B5E9E" stroke="#fff" stroke-width="4"/>
+      <text x="330" y="165" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#0B2230">DAY 60 · 5,000</text>
+      <text x="330" y="181" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#5B6B75">Voice-note shares + word of mouth kick in</text>
+
+      <!-- LANE 3 pins -->
+      <circle cx="480" cy="100" r="12" fill="#6B4FA0" stroke="#fff" stroke-width="4"/>
+      <text x="480" y="70" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" fill="#0B2230">DAY 90 · 10,000</text>
+      <text x="480" y="86" text-anchor="middle" font-family="IBM Plex Sans, sans-serif" font-size="11.5" fill="#5B6B75">≈400 paid ₹49 verifications · Phase 2 go/no-go</text>
+
+      <!-- goal flag -->
+      <line x1="880" y1="100" x2="880" y2="38" stroke="#0B2230" stroke-width="4" stroke-linecap="round"/>
+      <polygon points="880,38 940,50 880,62" fill="#0E7C6B"/>
+      <text x="880" y="30" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12" font-weight="700" fill="#0E7C6B">GOAL 🏁</text>
+    </svg>
+    <div class="road-cap">The road: 6 weeks of building · 90 days of selling · one loop — explain → trust → ₹49 → share → repeat</div>
+  </div>
+
+  <p class="eyebrow">The four of us — lanes and Day-90 targets</p>
+  <div class="team-grid">
+    <div class="persona">
+      <div class="role">Product · Tech · Strategy</div>
+      <h3>Prashant</h3>
+      <p>Ships the app in 6 weeks (Week 1 already done). Owns store listing, doctor panel setup, analytics, and the weekly numbers call. Nothing new gets built that the marketers can't explain in one line.</p>
+      <div class="tg">Target: launch Week 6 · activation ≥ 40%</div>
+    </div>
+    <div class="persona p-online">
+      <div class="role">Online · Instagram + WhatsApp</div>
+      <h3>Ananya</h3>
+      <p>Owns the internet: Instagram reels, WhatsApp community, creator collabs, and the store listing copy. Her content is also the ammo Ria and Aman show on the ground.</p>
+      <div class="tg">Target: 4,000 installs by Day 90 · code ANU</div>
+    </div>
+    <div class="persona p-mp">
+      <div class="role">Offline · Madhya Pradesh</div>
+      <h3>Ria</h3>
+      <p>Owns the ground in MP — clinics, pathology labs, medical stores in Bhopal, Indore, Jabalpur, Gwalior, Rewa + her own city. QR posters at counters, doctors on the ₹49 panel.</p>
+      <div class="tg">Target: 3,000 installs by Day 90 · codes RIA-xx</div>
+    </div>
+    <div class="persona p-od">
+      <div class="role">Offline · Odisha</div>
+      <h3>Aman</h3>
+      <p>Owns the ground in Odisha — Bhubaneswar, Cuttack, Puri, Sambalpur + towns near him. Same playbook as Ria, plus he collects Odia-language demand so we know when to build the Odia voice pack.</p>
+      <div class="tg">Target: 3,000 installs by Day 90 · codes AMN-xx</div>
+    </div>
+  </div>
+
+  <div class="bigbox">
+    <h3>Operating principle 1 — One story per phase</h3>
+    <p>Paytm confuses people because it shouts forty things at once. We launch with <b>one sentence</b> ("report photo bhejo, apni bhasha mein samajh lo") and the app shows <b>one big button</b>. When users master that, we hand them the next thing. Every phase of the roadmap = one new sentence, never a pile of features.</p>
+  </div>
+  <div class="bigbox blue">
+    <h3>Operating principle 2 — Downloads are vanity, uploads are truth</h3>
+    <p>A download that never uploads a report is a poster that fell off the wall. Our real scoreboard is <b>activation</b>: % of installs that upload their first report. Target ≥ 40%. Every marketer's job is not "get installs" — it's "get a family's first report explained in front of them."</p>
+  </div>
+  <div class="bigbox amber">
+    <h3>Operating principle 3 — Every install has a code</h3>
+    <p>Every poster, reel link, and bio link carries its own referral/QR code (ANU, RIA-BPL-03, AMN-CTC-01…). We know exactly which lab counter in Bhopal and which reel produced each install. <b>No code = it didn't happen.</b> This is how a 4-person team learns faster than a 400-person team.</p>
+  </div>
+  <div class="bigbox risk">
+    <h3>Operating principle 4 — The three never-do rules (unchanged from Briefing 02)</h3>
+    <ul>
+      <li><b>Never let AI diagnose.</b> AI explains; only registered doctors advise. This is our legal shield and our trust story.</li>
+      <li><b>Never scale before one loop proves.</b> MP + Odisha + Instagram is already three fronts. No new state until Day-90 numbers hold.</li>
+      <li><b>Never fight the government.</b> Aarogya Setu 2.0 is infrastructure; we ride it (ABHA pull, Phase 2) and serve private healthcare — the lane it left open.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 2: FEATURES, SIMPLY ============ -->
+<section class="page" id="features">
+  <p class="eyebrow">For Ananya, Ria &amp; Aman — how to talk about the product like a human</p>
+  <h2>Every launch feature as a 30-second story</h2>
+  <p class="lede">Nobody buys "AI-powered OCR with bilingual NLP." People buy the end of a specific fear. Each card below is one feature told the way you'd tell it at a lab counter or in a reel: a tiny story, the one-liner, the exact pitch line to say, and the psychology button it presses. Learn these by heart — this page IS the sales training.</p>
+
+  <div class="grouphead"><h3>The 8 features we launch with</h3><span class="gcount">memorise all eight</span></div>
+  <div class="grid">
+
+    <div class="card"><div class="num">L-01 · THE HERO</div><h3>AI Report Reader</h3>
+      <div class="story">Sunita ji, 58, Rewa. The lab hands her a blood report — all English, all numbers. She sits outside the clinic scared, waiting 2 days for the doctor's slot. Her son takes one photo in MedRed. 30 seconds later: every value in simple Hindi, green and red gauges, "ye theek hai, ye zyada hai, doctor se ye poochhna."</div>
+      <p><b>One line:</b> photo of any report in → simple Hindi/English explanation out, value by value, with colour gauges.</p>
+      <div class="why"><b>Why India needs it:</b> reports come in English medical jargon in a country where most families don't read English medical jargon. The scariest 48 hours in Indian family life is "report aa gayi, samajh nahi aayi." We kill that fear in 30 seconds — free.</div>
+      <div class="say">SAY: "Report ki photo bhejo, Hindi mein samajh lo — 30 second mein, FREE."</div>
+      <div class="why"><b>vs Aarogya Setu 2.0:</b> Setu shows a data dashboard. We explain like a family doctor — in your language, in a voice. <b>vs Practo:</b> Practo doesn't do this at all.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE HOOK</span><span class="chip psy">FEAR → RELIEF</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-02</div><h3>Voice Note — "Suno" Button</h3>
+      <div class="story">Grandma doesn't read screens. Her grandson taps "Suno" and the phone speaks the whole explanation in Hindi — 60–90 seconds, calm doctor tone. She listens twice. Then she forwards it to her sister on WhatsApp. That forward is our best advertisement.</div>
+      <p><b>One line:</b> every explanation can be heard, not just read — and shared as audio on WhatsApp.</p>
+      <div class="why"><b>Why India needs it:</b> literacy is the wall between elders and every health app ever made. Voice removes the wall. And every shared voice note carries MedRed into a new family for free.</div>
+      <div class="say">SAY: "Padhna nahi aata? Koi baat nahi — app bol ke samjhata hai."</div>
+      <div class="why"><b>vs Setu 2.0:</b> text and forms only. <b>vs Practo:</b> nothing like it.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE</span><span class="chip psy">SHAREABILITY</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-03 · THE MONEY</div><h3>₹49 Doctor Verification</h3>
+      <div class="story">The AI says papa's creatinine is high. The family trusts it… but not fully. For ₹49 — less than two chai — a real registered doctor reviews the summary and sends a short note: "Values noted, repeat test in 4 weeks, meet a nephrologist if it stays high." Now the family exhales. "Doctor ne bola."</div>
+      <p><b>One line:</b> AI explains free; ₹49 gets a real registered doctor to confirm it with a short text/voice note.</p>
+      <div class="why"><b>Why India needs it:</b> in an Indian household "app ne dikhaya" loses to "doctor ne bola" every single time. This is our trust engine, our legal shield, AND the only thing we sell at launch. The doctor earns ₹30, we keep ₹19.</div>
+      <div class="say">SAY: "AI free mein samjhata hai — ₹49 mein asli doctor confirm karta hai. Do chai se sasta."</div>
+      <div class="why"><b>vs Setu 2.0:</b> no doctor in the loop. <b>vs Practo:</b> their cheapest consult is ₹300+; ours is a ₹49 impulse tap.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip rev">REVENUE</span><span class="chip psy">AUTHORITY</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-04</div><h3>Health Locker — Family ka Report DigiLocker</h3>
+      <div class="story">Every Indian home has THE polythene bag — ten years of crumpled reports, half missing. New doctor asks "purani report layein" and the house turns upside down. In MedRed, every report ever uploaded lives forever, per family member, searchable in two taps.</div>
+      <p><b>One line:</b> a lifetime vault of every report, organised by family member — the polythene bag, retired.</p>
+      <div class="why"><b>Why India needs it:</b> patients carry paper between doctors because nothing connects them. Two years of family history in the locker means nobody ever leaves — this is our retention moat.</div>
+      <div class="say">SAY: "Wo reports wala polythene bag? Ab phone mein hai — hamesha ke liye."</div>
+      <div class="why"><b>vs Setu 2.0:</b> they have national records (ABHA) — we don't fight that, we'll pull from it in Phase 2. Ours is the family-friendly layer on top. <b>vs Practo:</b> their records feature exists but nobody uses it — no explanation attached.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE</span><span class="chip psy">ORDER FROM CHAOS</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-05</div><h3>Family Members — One App, Whole Ghar</h3>
+      <div class="story">Rahul works in Indore. His parents are in Rewa. Mummy's thyroid report comes — Rahul uploads it from 500 km away, reads the explanation, plays her the voice note on a call, and books the ₹49 verification. He is the health manager of his family. We built the app for HIM.</div>
+      <p><b>One line:</b> add up to 4 family members; manage everyone's reports from one phone.</p>
+      <div class="why"><b>Why India needs it:</b> Indian health decisions are family decisions. The son in the city manages the parents in the town. Build for the caretaker and you acquire whole families, not users — 4× data, 4× retention.</div>
+      <div class="say">SAY: "Ek app mein poora parivaar — mummy, papa, bachche, sab ki reports alag-alag, ek jagah."</div>
+      <div class="why"><b>vs Setu 2.0:</b> individual-citizen design. <b>vs Practo:</b> individual-patient design. Nobody designed for the Indian family. We did.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE</span><span class="chip psy">FAMILY DUTY</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-06</div><h3>Trend Graphs — Teen Report, Ek Line</h3>
+      <div class="story">Papa's sugar: 130 in January, 145 in April, 162 in July. Three separate reports said "slightly high" and everyone relaxed. One MedRed graph shows a line climbing like a staircase — and suddenly the whole family understands what three PDFs never showed. The doctor sees the graph and says "good, this helps."</div>
+      <p><b>One line:</b> the same value tracked across all reports as one simple graph — up, down, or steady.</p>
+      <div class="why"><b>Why India needs it:</b> diseases like diabetes and thyroid don't live in one report — they live in the TREND. No paper file shows the trend. One chart tells a diabetic more than ten reports.</div>
+      <div class="say">SAY: "Ek graph mein dekho — sugar badh rahi hai ya control mein hai."</div>
+      <div class="why"><b>vs Setu 2.0 / Practo:</b> neither turns a family's report history into a story you can see.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE</span><span class="chip psy">SEEING = BELIEVING</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-07</div><h3>Reminders + AI Dashboard — App Jo Yaad Rakhta Hai</h3>
+      <div class="story">"Aapka last HbA1c 3 mahine pehle tha — dobara test ka time ho gaya." Nobody in the family remembered. The app did. That one notification, arriving at the right moment, feels like having a doctor in the family.</div>
+      <p><b>One line:</b> the app reads your reports and reminds you — next test due, medicine time — before you think of it.</p>
+      <div class="why"><b>Why India needs it:</b> missed follow-up tests are how "thoda high hai" becomes a hospital admission. Adherence is India's silent killer; a reminder is the cheapest medicine ever invented.</div>
+      <div class="say">SAY: "Ye app sirf batata nahi — yaad bhi rakhta hai. Test ka time aaya to khud bolega."</div>
+      <div class="why"><b>vs Setu 2.0:</b> static reminders you must set yourself. Ours are created FROM your reports automatically. <b>vs Practo:</b> reminders exist to sell you medicine, not to watch your health.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE</span><span class="chip psy">BEING CARED FOR</span></div>
+    </div>
+
+    <div class="card"><div class="num">L-08</div><h3>Emergency QR Card — Jaan Bachaane Wala Card</h3>
+      <div class="story">A scooter accident. A stranger scans the QR on the lock screen: blood group B+, allergic to penicillin, BP medicines, wife's phone number. The stranger calls, the hospital knows what NOT to inject. This card costs us almost nothing to build and it is the feature people show off to relatives.</div>
+      <p><b>One line:</b> a printable/lock-screen QR with blood group, allergies, conditions, medicines and emergency contact — anyone can scan it.</p>
+      <div class="why"><b>Why India needs it:</b> in an emergency, the patient can't speak and the family isn't there. This is love you can put in a wallet — and every printed card is a MedRed ad that travels.</div>
+      <div class="say">SAY: "Ye card jeb mein rakho — bhagwan na kare kabhi zaroorat pade, par pade to ye jaan bachayega."</div>
+      <div class="why"><b>vs Setu 2.0:</b> blood-bank stock lookup, not a personal card. <b>vs Practo:</b> nothing.</div>
+      <div class="chiprow"><span class="chip v1">LAUNCH</span><span class="chip free">FREE</span><span class="chip psy">LOVE + SAFETY</span></div>
+    </div>
+  </div>
+
+  <div class="grouphead"><h3>Coming right after launch — say "aa raha hai" honestly</h3><span class="gcount">weeks 7–14 · never promise dates on the ground</span></div>
+  <p class="groupwhy">These are real, specced, and next in line — but they are NOT in the launch app. On the ground, mention them as "jald aa raha hai" only if asked. Never sell what isn't installed.</p>
+  <div class="grid">
+    <div class="card"><div class="num">N-01</div><h3>WhatsApp Bot</h3><p>Send the report photo to a WhatsApp number → explanation comes back, no app needed. Waiting on WhatsApp Business API approval (applied Week 1). This becomes our biggest funnel.</p><div class="chiprow"><span class="chip p2">PHASE 2</span></div></div>
+    <div class="card"><div class="num">N-02</div><h3>Prescription Scanner</h3><p>Photo of the doctor's handwriting → which medicine, when, empty stomach or after food → auto reminders. The most-repeated question in every Indian home, answered forever.</p><div class="chiprow"><span class="chip p2">PHASE 2</span></div></div>
+    <div class="card"><div class="num">N-03</div><h3>Generic Medicine Saver</h3><p>"Ye ₹340 wali dawa ka ₹40 ka generic Jan Aushadhi pe milta hai." One swap pays for a year of MedRed — the most viral money story we have.</p><div class="chiprow"><span class="chip p2">PHASE 2</span><span class="chip rev">REVENUE STORY</span></div></div>
+    <div class="card"><div class="num">N-04</div><h3>Trend Alerts → ₹49</h3><p>"Papa's sugar rose 3 tests in a row — verify with a doctor for ₹49?" Proactive alert → paid verification → life actually saved. The full loop, automated.</p><div class="chiprow"><span class="chip p2">PHASE 2</span><span class="chip rev">REVENUE</span></div></div>
+    <div class="card"><div class="num">N-05</div><h3>Caretaker Mode + ABHA Pull</h3><p>Full remote management of elderly parents + government health records flowing into our locker. Rounds out the family story.</p><div class="chiprow"><span class="chip p2">PHASE 2</span></div></div>
+    <div class="card"><div class="num">N-06</div><h3>Everything else from Briefing 02</h3><p>Doctor marketplace, lab bookings, Hospital OS, reels, insurance — months 4–12. The map hasn't changed; only the marching order has.</p><div class="chiprow"><span class="chip p3">PHASE 3+</span></div></div>
+  </div>
+
+  <div class="grouphead"><h3>Objection handling — the field answer sheet</h3><span class="gcount">what to say when they push back</span></div>
+  <div class="tablewrap">
+  <table class="vs">
+    <tr><th>They say…</th><th>You say…</th></tr>
+    <tr><td>"Aarogya Setu 2.0 free mein sab karta hai na?"</td><td>"Setu sarkari kaam ke liye hai — schemes, sarkari hospital. Wo report ka DATA dikhata hai; MedRed report ko SAMJHATA hai — Hindi mein, awaaz mein, aur ₹49 mein asli doctor confirm karta hai. Dono alag cheez hain."</td></tr>
+    <tr><td>"Practo jaisa hai kya?"</td><td>"Practo doctor DHUNDHTA hai. MedRed report SAMJHATA hai. Aap Practo tab kholte ho jab appointment chahiye; MedRed tab jab haath mein report hai aur samajh nahi aa rahi — jo har mahine hota hai."</td></tr>
+    <tr><td>"AI galat bata de to?"</td><td>"AI kabhi bimari nahi batata, sirf values samjhata hai aur bolta hai doctor se kya poochho. Aur ₹49 mein registered doctor khud check karta hai. AI akela faisla kabhi nahi karta — ye hamara pakka rule hai."</td></tr>
+    <tr><td>"Data safe hai? Report private cheez hai."</td><td>"Bilkul. Reports encrypted hain, sirf aapka parivaar dekh sakta hai, hum kisi ko bechte nahi — DPDP kanoon ke hisaab se. Private company hain, koi sarkari tracking history nahi."</td></tr>
+    <tr><td>"Paisa kyu du? Sab free hona chahiye."</td><td>"App free HAI — report samjhna, locker, voice, QR card, sab free. Sirf jab aapko asli doctor ki mohar chahiye, tab ₹49 — do chai se kam. Zabardasti kuch nahi."</td></tr>
+    <tr><td>Doctor: "Ye mera kaam kha jayega."</td><td>"Ulta — ye aapke paas TAYYAR patient bhejta hai jo apni report samajh ke aata hai aur follow-up par lautta hai. Aur ₹49 panel se aap ghar baithe extra kamaate hain — ₹30 per review aapka."</td></tr>
+  </table>
+  </div>
+</section>
+
+<!-- ============ TAB 3: LAUNCH PHASES ============ -->
+<section class="page" id="phases">
+  <p class="eyebrow">The CEO decision — phased, not everything together</p>
+  <h2>We launch Phase 1 only. Here's why, and here's the order.</h2>
+  <p class="lede">The question was: launch lean, or launch everything together? The answer is lean — and it isn't even close. Four reasons below, then the exact wave plan. The 42-feature map from Briefing 02 is still the destination; this page is just the driving order.</p>
+
+  <div class="bigbox">
+    <h3>Why lean wins — four reasons</h3>
+    <ol>
+      <li><b>The 6-week clock.</b> Eight features ship in 6 weeks. Forty-two features ship never. We chose a date, so the date chooses the scope.</li>
+      <li><b>Marketing needs ONE sentence.</b> Ananya's reel, Ria's poster, and Aman's counter pitch all say the same thing: "Report photo bhejo, apni bhasha mein samajh lo." A 42-feature launch has no sentence — and a product without a sentence has no word of mouth.</li>
+      <li><b>The anti-Paytm rule.</b> A first-time user who opens the app and sees one big button UNDERSTANDS. A user who sees a grid of forty icons closes the app. Comprehension is a feature; clutter is a bug.</li>
+      <li><b>Launch is our most fragile moment.</b> Every extra feature is extra bugs, and Play Store reviews from week one follow us forever. Eight polished features earn 4.5 stars; forty rushed ones earn 3.2 — and 3.2 kills every poster Ria hangs.</li>
+    </ol>
+  </div>
+
+  <div class="phase-block">
+    <div class="pnum done">WAVE 1<br>WEEK 6<br>LAUNCH ✓</div>
+    <div><h3>The wedge — "Report Samjho" · <span class="mono" style="color:var(--blue)">the sentence: report photo bhejo, samajh lo</span></h3>
+    <p>The 8 features from the Features tab: AI Report Reader · Voice Note · ₹49 Doctor Verification · Health Locker · Family (4 members) · Trend Graphs · Reminders + AI Dashboard · Emergency QR Card. Free tier: 2 report explains/month + locker + QR card. Only paid thing: ₹49 verification.</p>
+    <ul><li><b>Ships when:</b> Week 6, Android/Play Store first (India is overwhelmingly Android; iOS follows in month 2–3).</li>
+    <li><b>Success gate to open Wave 2:</b> activation ≥ 40% and crash-free rate ≥ 99%.</li></ul></div>
+  </div>
+
+  <div class="phase-block">
+    <div class="pnum">WAVE 2<br>WEEKS 7–14</div>
+    <div><h3>The habit — "App Yaad Rakhta Hai, Paise Bachata Hai" · <span class="mono" style="color:var(--blue)">the sentence: ye app paise aur jaan dono bachata hai</span></h3>
+    <ul>
+      <li>WhatsApp Bot (report in → explanation out; API application filed in Week 1 so approval lands in time)</li>
+      <li>Prescription Scanner → auto medicine reminders</li>
+      <li>Generic Medicine Saver (the ₹340 → ₹40 story — Ananya's biggest reel series)</li>
+      <li>Trend Alerts wired to ₹49 verification (the automated revenue loop)</li>
+      <li>Caretaker Mode · ABHA record pull · scheme matcher</li>
+    </ul>
+    <p style="margin-top:8px"><b>Rule:</b> one feature drop every 1–2 weeks, each with its own reel + poster refresh — a drumbeat, not a dump.</p></div>
+  </div>
+
+  <div class="phase-block">
+    <div class="pnum">WAVE 3<br>MONTHS 4–6</div>
+    <div><h3>The marketplace — doctors, labs, first hospital</h3>
+    <ul><li>Verified doctor directory + online/offline booking (25–50 doctors — Ria and Aman's clinic relationships convert here)</li>
+    <li>Lab partner #1 with home collection; report auto-lands in the locker</li>
+    <li>Hospital OS pilot: 2 Tier-2 hospitals (report push + Doctor Copilot)</li></ul></div>
+  </div>
+
+  <div class="phase-block">
+    <div class="pnum">WAVE 4<br>MONTHS 7–12</div>
+    <div><h3>The ecosystem — content, commerce, white-label</h3>
+    <ul><li>Medical Reels + feed + doctor creator profiles · medicine delivery via local chemists · insurance marketplace · white-label hospital app · second state/language — only if Wave 1–3 metrics hold</li></ul></div>
+  </div>
+
+  <div class="bigbox amber">
+    <h3>What we tell users about the future</h3>
+    <p>Inside the app, a small "Aur aa raha hai…" card teases the next TWO features only (e.g., "WhatsApp par report bhejna" and "Dawai ki parchi scan"). This builds anticipation instead of clutter, and gives every user a reason to keep notifications on. On the ground: never promise a date, only "jald aa raha hai."</p>
+  </div>
+</section>
+
+<!-- ============ TAB 4: APP DESIGN ============ -->
+<section class="page" id="design">
+  <p class="eyebrow">Architecture — where every feature lives</p>
+  <h2>Five tabs, one big button, zero confusion</h2>
+  <p class="lede">The design test is one person: a 58-year-old on her first smartphone must upload a report and hear the explanation <b>without anyone helping her</b>. We call it the grandma test. Every screen below is built to pass it — and to stay the opposite of a Paytm home screen.</p>
+
+  <div class="bigbox">
+    <h3>The seven design laws</h3>
+    <ul>
+      <li><b>1 · Five tabs, never more.</b> Ghar · Locker · SCAN (big centre button) · Family · Profile. New features live INSIDE these five — they never add a sixth.</li>
+      <li><b>2 · Two taps to the magic.</b> Open app → tap the big button → camera opens. That's it.</li>
+      <li><b>3 · Language first.</b> The very first screen asks हिंदी or English — before login, before anything.</li>
+      <li><b>4 · Voice on everything.</b> Every explanation screen has a big "Suno 🔊" button.</li>
+      <li><b>5 · Grandma-grade sizes.</b> 48dp minimum tap targets, 16pt minimum text, colour is never the only signal (from our Warm Clinic design system, already built in Week 1).</li>
+      <li><b>6 · Buttons speak the user's action, in the user's language.</b> "Report Samjhein", "Suno", "Doctor se Confirm Karein ₹49" — never "Submit", never "OCR", never jargon.</li>
+      <li><b>7 · One job per screen.</b> If a screen does two things, it becomes two screens.</li>
+    </ul>
+  </div>
+
+  <div class="phones">
+    <div class="phone"><div class="cap">Screen 0 · First open</div>
+      <div class="ui hero">अपनी भाषा चुनें<br>हिंदी</div>
+      <div class="ui card2" style="text-align:center;font-weight:600">English</div>
+      <div class="ui bar">3 screens only: language → phone/email login → add first family member</div>
+      <div class="ui soft">No forms. No 10-field signup. Grandma passes this alone.</div>
+    </div>
+    <div class="phone"><div class="cap">Tab 1 · Ghar (Home)</div>
+      <div class="ui bar">Namaste, Sunita ji 🙏</div>
+      <div class="ui hero">📷 Report Samjhein</div>
+      <div class="ui warn">⏰ Papa ki dawai — raat 9 baje</div>
+      <div class="ui card2">🧪 HbA1c dobara test — 12 din mein</div>
+      <div class="ui card2">📄 Pichhli report: Thyroid · Mummy</div>
+      <div class="tabsline"><span class="on">Ghar</span><span>Locker</span><span>SCAN</span><span>Family</span><span>Profile</span></div>
+    </div>
+    <div class="phone"><div class="cap">Result · After upload</div>
+      <div class="ui bar">CBC Report · Sunita ji · aaj</div>
+      <div class="ui voice">🔊 SUNO — Hindi mein sunein (90 sec)</div>
+      <div class="ui soft">Hemoglobin 11.2 — thoda kam ▂▄▆</div>
+      <div class="ui warn">Sugar 162 — zyada hai ▂▄█</div>
+      <div class="ui card2">Doctor se kya poochhein → 3 sawal</div>
+      <div class="ui pay">✓ Asli Doctor se Confirm Karein — ₹49</div>
+      <div class="ui bar">↗ WhatsApp par bhejein (voice + card)</div>
+    </div>
+    <div class="phone"><div class="cap">Tab 4 · Family</div>
+      <div class="ui card2">👵 Sunita ji · 12 reports · QR card</div>
+      <div class="ui card2">👨 Ramesh ji · 8 reports · QR card</div>
+      <div class="ui card2">👦 Aarav · 3 reports · vaccination soon</div>
+      <div class="ui soft">+ Member jodein (4 tak free)</div>
+      <div class="ui bar">Each member: own reports, own trends, own emergency QR</div>
+      <div class="tabsline"><span>Ghar</span><span>Locker</span><span>SCAN</span><span class="on">Family</span><span>Profile</span></div>
+    </div>
+  </div>
+
+  <div class="grouphead"><h3>Feature → page map</h3><span class="gcount">so nothing floats and nothing hides</span></div>
+  <div class="tablewrap">
+  <table class="vs">
+    <tr><th>Feature</th><th>Lives on</th><th>User reaches it by</th></tr>
+    <tr><td>AI Report Reader</td><td>SCAN (centre button) → Result screen</td><td>2 taps: open app → big button → camera</td></tr>
+    <tr><td>Voice Note (Suno)</td><td>Top of every Result screen</td><td>1 tap on any explanation</td></tr>
+    <tr><td>₹49 Doctor Verification</td><td>Bottom of Result screen (dark button)</td><td>1 tap after reading — the moment of doubt is the moment of offer</td></tr>
+    <tr><td>Health Locker</td><td>Locker tab, grouped by member</td><td>1 tap, search on top</td></tr>
+    <tr><td>Family members</td><td>Family tab</td><td>1 tap · add member in 30 seconds</td></tr>
+    <tr><td>Trend Graphs</td><td>Inside any value on a Result screen + Locker</td><td>tap a value → "iska trend dekhein"</td></tr>
+    <tr><td>Reminders + AI Dashboard</td><td>Ghar (home) as cards — NOT a separate tab</td><td>zero taps: it greets you</td></tr>
+    <tr><td>Emergency QR Card</td><td>Family tab → each member</td><td>2 taps → print / save to lock screen</td></tr>
+    <tr><td>Wave-2 features later</td><td>Slot into these same 5 tabs</td><td>e.g., prescription scan = same SCAN button, second option</td></tr>
+  </table>
+  </div>
+
+  <div class="bigbox blue">
+    <h3>Why the ₹49 button sits where it sits</h3>
+    <p>Psychology of the placement: the user has just READ that something is high. That is the exact second of maximum worry — and maximum willingness to pay for reassurance. The dark "Doctor se Confirm Karein ₹49" button sits right there, below the gauges. Not on the home screen, not in a menu — at the moment of doubt. This one placement decision is worth more than any discount campaign.</p>
+  </div>
+</section>
+
+<!-- ============ TAB 5: TEAM PLAYBOOKS ============ -->
+<section class="page" id="team">
+  <p class="eyebrow">Who does what, every week — with numbers attached</p>
+  <h2>Three marketers, three lanes, one scoreboard</h2>
+  <p class="lede">Split of the 10,000: Ananya (online) 4,000 · Ria (MP ground) 3,000 · Aman (Odisha ground) 3,000. The ground game and the online game feed each other: Ananya's reels are the demo Ria and Aman play at counters; the reactions Ria and Aman film at counters are Ananya's best content. Nobody works alone.</p>
+
+  <div class="tablewrap">
+  <table class="vs">
+    <tr><th>Person</th><th>Lane</th><th>Territory</th><th>Day-90 target</th><th>Main weekly KPI</th><th>Tracking code</th></tr>
+    <tr><td>Ananya</td><td>Online — Instagram + WhatsApp</td><td>Hindi-belt India (national)</td><td>4,000 installs</td><td>installs from link + reel views + community size</td><td>ANU (bio link UTM)</td></tr>
+    <tr><td>Ria</td><td>Offline — clinics, labs, medical stores</td><td>MP: Bhopal, Indore, Jabalpur, Gwalior, Rewa + her city</td><td>3,000 installs</td><td>active QR points + installs per point</td><td>RIA-BPL-01, RIA-IND-02…</td></tr>
+    <tr><td>Aman</td><td>Offline — clinics, labs, medical stores</td><td>Odisha: Bhubaneswar, Cuttack, Puri, Sambalpur + nearby towns</td><td>3,000 installs</td><td>active QR points + installs per point</td><td>AMN-BBS-01, AMN-CTC-02…</td></tr>
+    <tr><td>Prashant</td><td>Product + ops</td><td>—</td><td>App live Week 6</td><td>activation % · crash-free % · ₹49 count</td><td>—</td></tr>
+  </table>
+  </div>
+
+  <div class="grouphead"><h3>PRE-LAUNCH · Weeks 1–6 (while the app is being built)</h3><span class="gcount">the ground is prepared BEFORE the seed</span></div>
+  <p class="groupwhy">Launch day should feel like flipping a switch on work already done — not day one of work. By Week 6, Ananya has an audience waiting, and Ria and Aman have posters already hanging with a "launching this week" sticker.</p>
+
+  <div class="phase-block">
+    <div class="pnum" style="color:var(--violet)">ANANYA<br>WEEKS 1–6</div>
+    <div><h3>Build the audience before the app exists</h3>
+    <ul>
+      <li><b>W1–2:</b> Set up the Instagram identity (handle, bio, highlight covers) + a WhatsApp community "MedRed Parivaar". Start posting <b>3 reels/week</b> on three pillars: ① "Report ka ek value, seedhi Hindi mein" (educate) ② "Ye galatfehmi chhodo" myth-busters (hook) ③ family-caretaker emotional clips (heart).</li>
+      <li><b>W3–4:</b> List 20 micro creators (10k–100k followers; health, mom-content, small-town lifestyle) and pitch barter collabs for launch week. Push everyone to the WhatsApp community: "app aane par sabse pehle aapko milega."</li>
+      <li><b>W5:</b> Beta week — film real beta families reacting to their first explanation (with written consent). These clips ARE the launch campaign.</li>
+      <li><b>W6:</b> Write the Play Store listing with Prashant (title, screenshots, description — she owns the words). Schedule launch-week content: 7 reels ready before launch day.</li>
+      <li><b>Pre-launch targets:</b> 1,000 followers · 500 WhatsApp community members · 20 beta families recruited online · 7 launch reels in the can.</li>
+    </ul></div>
+  </div>
+
+  <div class="phase-block">
+    <div class="pnum" style="color:var(--blue)">RIA (MP)<br>WEEKS 1–6</div>
+    <div><h3>Map the ground, sign the doctors, hang the posters</h3>
+    <ul>
+      <li><b>W1–2:</b> Build the map sheet: <b>100 target points</b> — 50 private clinics, 30 pathology labs, 20 medical stores — across her cities, with name, contact person, footfall guess, address. Start with the 2 cities she can physically reach weekly; phone-first for the rest.</li>
+      <li><b>W3–4:</b> Visit/call 60 of them with the pitch (scripts below). Goal: <b>25 verbal yeses</b> for a poster at the counter + shortlist 5 friendly doctors for the ₹49 panel.</li>
+      <li><b>W5:</b> Recruit <b>20 beta families</b> (staff of friendly labs are perfect beta users) + get <b>3 doctors signed</b> on the panel (they earn ₹30 per review, work from their phone).</li>
+      <li><b>W6:</b> Print and pre-hang posters at the 25 yes-points with a "IS HAFTE LAUNCH" sticker. Each poster carries its own QR code (RIA-BPL-01…).</li>
+      <li><b>Pre-launch targets:</b> 100 mapped · 25 posters pre-hung · 3 panel doctors signed · 20 beta families.</li>
+    </ul></div>
+  </div>
+
+  <div class="phase-block">
+    <div class="pnum" style="color:var(--amber)">AMAN (OD)<br>WEEKS 1–6</div>
+    <div><h3>Same playbook, Odisha edition — plus the language notebook</h3>
+    <ul>
+      <li>Identical week structure to Ria: 100 points mapped (Bhubaneswar + Cuttack first, then Puri/Sambalpur) → 25 poster yeses → 3 panel doctors → 20 beta families → posters pre-hung Week 6 with AMN-xx codes.</li>
+      <li><b>The honest note:</b> the app launches in Hindi + English only. In Odisha, that means Aman leads with English-comfortable urban families and Hindi-speaking communities first, and labs/clinics where reports are in English anyway (they all are).</li>
+      <li><b>The language notebook:</b> every time someone says "Odia mein hota to le leta," Aman logs it. 200 logged requests = the business case that unlocks the Odia voice pack in Wave 2/3. He is not just selling — he is doing market research nobody else has.</li>
+    </ul></div>
+  </div>
+
+  <div class="grouphead"><h3>LAUNCH MONTH · Weeks 7–10, week by week</h3><span class="gcount">Day 30 target: 1,500 installs</span></div>
+  <div class="tablewrap">
+  <table class="vs">
+    <tr><th>Week</th><th>Ananya (online)</th><th>Ria (MP)</th><th>Aman (Odisha)</th><th>Install target (cum.)</th></tr>
+    <tr><td>W7 · LAUNCH</td><td>1 reel/day × 7 · community broadcast · 5 creator collabs go live · replies to every comment within an hour</td><td>Activate all 25 posters (peel the sticker) · stand at the 2 busiest labs Sat–Sun doing live demos on people's own reports</td><td>Activate 25 posters · weekend live demos at 2 busiest Bhubaneswar labs</td><td>350</td></tr>
+    <tr><td>W8</td><td>Beta-family reaction reels · first "₹49 doctor note" testimonial · 3 reels + 3 stories</td><td>Add 10 new points · revisit week-1 points, replace dead posters · film 5 counter reactions for Ananya</td><td>Add 10 new points · film 5 counter reactions</td><td>700</td></tr>
+    <tr><td>W9</td><td>Myth-buster series ("ghee se joint theek hota hai?") · collab round 2 · start replying with voice notes (on-brand)</td><td>First doctor-waiting-room placements (posters INSIDE 5 clinics) · pitch 5 more panel doctors</td><td>Same: 5 waiting rooms · 5 more panel-doctor pitches</td><td>1,100</td></tr>
+    <tr><td>W10</td><td>"1,000 families" milestone reel · user-generated screenshots week</td><td>Double down on the top-5 performing QR points (by code data) — more visibility, counter-staff thank-you gifts</td><td>Same: double down where the codes say it works</td><td>1,500 ✓</td></tr>
+  </table>
+  </div>
+
+  <div class="grouphead"><h3>Months 2–3 · the compounding phase</h3><span class="gcount">Day 60: 5,000 · Day 90: 10,000</span></div>
+  <div class="tablewrap">
+  <table class="vs">
+    <tr><th>Milestone</th><th>Ananya</th><th>Ria</th><th>Aman</th><th>Team total</th></tr>
+    <tr><td>Day 30</td><td>600</td><td>450</td><td>450</td><td><b>1,500</b></td></tr>
+    <tr><td>Day 60</td><td>2,000 (+1,400)</td><td>1,500 (+1,050)</td><td>1,500 (+1,050)</td><td><b>5,000</b></td></tr>
+    <tr><td>Day 90</td><td>4,000 (+2,000)</td><td>3,000 (+1,500)</td><td>3,000 (+1,500)</td><td><b>10,000</b> 🏁</td></tr>
+  </table>
+  </div>
+  <div class="bigbox">
+    <h3>Why these numbers are realistic (the ground math)</h3>
+    <p><b>Offline:</b> a QR poster at a busy pathology lab counter converts 8–15 installs/week (people are literally holding a report they don't understand — the most perfectly-timed ad in history). Ria at 40 active points × 10/week average = 400/week by month 2. Same for Aman. <b>Online:</b> Wave-2 feature drops (WhatsApp bot, ₹340→₹40 generic saver) give Ananya a fresh viral story every two weeks — months 2–3 are when reels compound. <b>Plus the invisible marketer:</b> every shared voice note and every printed QR card recruits without us. If any lane runs 20% behind for two straight weeks, we move budget/effort — the codes tell us where.</p>
+  </div>
+
+  <div class="grouphead"><h3>The scripts — memorise, then make them yours</h3><span class="gcount">30 seconds each</span></div>
+
+  <div class="script"><div class="who">Ria / Aman → Doctor (clinic visit)</div>
+    <p>"Doctor sahab, 30 second. Aapke patients report leke confusion mein aate hain — aadha time aapka unhe values samjhane mein jaata hai. <b>MedRed unhe pehle hi Hindi mein samjha deta hai — bina bimari bataye, bina ilaaj bataye.</b> Patient aapke paas tayyar aata hai, sahi sawal leke.</p>
+    <p>Aur ek cheez: hamare ₹49 doctor-verification panel pe aap ghar baithe report summaries review karke <b>₹30 per review</b> kamaate hain — phone se, 2 minute ka kaam. Abhi sirf ek poster waiting room mein lagane ki ijazat chahiye. Main laga ke jaati/jaata hoon."</p>
+  </div>
+
+  <div class="script"><div class="who">Ria / Aman → Pathology lab owner</div>
+    <p>"Sir, aapke counter se roz log report leke nikalte hain aur bahar khade hoke Google karte hain. Ye poster lagaiye — <b>patient QR scan karega, apni report Hindi mein samjhega, aur aapki lab yaad rakhega</b> kyunki samajh yahin mili. Jo patient apni report samajhta hai, wo follow-up test time pe karata hai — wo aapka repeat business hai. Poster free, app free, aapka koi kharcha nahi."</p>
+  </div>
+
+  <div class="script"><div class="who">Ria / Aman → Medical store</div>
+    <p>"Bhaiya, ye app logon ko dawai ka time yaad dilata hai — jo dawai time pe khaata hai, wo agle mahine phir aapse hi kharidta hai. Counter pe ye chhota standee rakh dijiye. Aage chal ke hum delivery partnership bhi laa rahe hain — pehle judne walon ko pehle milegi."</p>
+  </div>
+
+  <div class="script"><div class="who">Ananya → camera (the master reel hook, 15 sec)</div>
+    <p>"Report aayi hai... aur kuch samajh nahi aa raha? 👀 Photo kheencho. 30 second. Poori report seedhi Hindi mein — kya theek hai, kya zyada hai, doctor se kya poochhna hai. Aur haan — <b>dadi ke liye AWAAZ mein bhi.</b> Link bio mein. Kisi apne ko bhejo jise aaj iski zaroorat hai. ❤️"</p>
+  </div>
+
+  <div class="bigbox violet">
+    <h3>The weekly rhythm — non-negotiable</h3>
+    <ul>
+      <li><b>Monday 9 PM · War-room call, 30 minutes.</b> Each person: their number (by code), one thing that worked, one blocker, one focus for next week. Prashant runs it with the sheet open.</li>
+      <li><b>The 5-reaction rule:</b> every marketer drops 5 user reactions (screenshots, voice notes, 15-sec clips — with consent) into the group every week. This is Ananya's fuel and everyone's morale.</li>
+      <li><b>One sheet, four columns.</b> Installs by code · activations · ₹49 sold · active QR points. Updated every Monday before the call. No sheet, no meeting.</li>
+    </ul>
+  </div>
+
+  <div class="bigbox amber">
+    <h3>Poster spec (Ria &amp; Aman) — one poster, one job</h3>
+    <p>A3 size · one line huge: <b>"Report ki photo bhejo — Hindi mein samjho. FREE."</b> · one giant QR (unique per location) · one trust strip at the bottom: <b>"₹49 mein asli doctor se confirm · aapka data private"</b> · MedRed logo. Nothing else. A poster with five messages delivers zero.</p>
+  </div>
+</section>
+
+<!-- ============ TAB 6: DEV SPRINT ============ -->
+<section class="page" id="dev">
+  <p class="eyebrow">Prashant's side — the 6-week Flutter sprint</p>
+  <h2>Briefing 02 said months. The CEO says 6 weeks. Here's how both are true.</h2>
+  <p class="lede">We compress by cutting <b>scope</b>, not corners: 8 features, Android-first, one store. The build runs on the existing spec pack (master context + amendment 00A + 5 phase files) executed by Claude in VS Code — Flutter + Riverpod + go_router on the fresh Supabase project, all secrets in Edge Functions, RLS everywhere, SQL run manually. Week 1 is already done, so the clock reads 5 weeks remaining.</p>
+
+  <div class="phase-block">
+    <div class="pnum done">WEEK 1<br>DONE ✓</div>
+    <div><h3>Foundation (Phase 1 spec — executed)</h3>
+    <p>Warm Clinic design system + Manrope/Devanagari typography · shared widgets (MedButton, MedCard, RangeBar, EmptyState, LangToggle) · Supabase auth (email + password) · bilingual chrome persisted to profiles · 5-tab shell with go_router · Android/iOS hardening · profiles SQL live.</p></div>
+  </div>
+  <div class="phase-block">
+    <div class="pnum">WEEK 2</div>
+    <div><h3>Locker + Family (Phase 2 spec)</h3>
+    <ul><li>Family accounts with DPDP consent flow · camera-first report upload · report timeline · offline caching (Hive)</li>
+    <li>Families/members/reports schema + RLS (SECURITY DEFINER helper) run manually in SQL editor</li>
+    <li><b>Also this week (ops):</b> apply for WhatsApp Business API (Wave-2 dependency — approval takes weeks) · buy/set the support WhatsApp number</li></ul></div>
+  </div>
+  <div class="phase-block">
+    <div class="pnum">WEEK 3</div>
+    <div><h3>The Hero — AI Reader (Phase 3 spec)</h3>
+    <ul><li>Gemini via Supabase Edge Function (provider-agnostic layer) · bilingual explanation screens · RangeBar gauges · <b>TTS voice notes (the Suno button)</b> · trend graphs (fl_chart) · WhatsApp share of voice + summary card</li>
+    <li>Prompt hard rule baked in: explain values + when to see a doctor — never disease claims, never treatment</li></ul></div>
+  </div>
+  <div class="phase-block">
+    <div class="pnum">WEEK 4</div>
+    <div><h3>The Money — ₹49 loop (Phase 4 spec) + Phase 5 start</h3>
+    <ul><li>Razorpay via Edge Function · ₹49 verification request flow · minimal doctor-side review surface (doctors work from their phone) · verified-note delivery (text/voice)</li>
+    <li><b>Ops in parallel:</b> Razorpay live KYC · panel agreements for Ria/Aman's 3+3 doctors · privacy policy + T&amp;Cs + ₹49 refund policy drafted</li></ul></div>
+  </div>
+  <div class="phase-block">
+    <div class="pnum">WEEK 5</div>
+    <div><h3>Dashboard, Reminders, QR (Phase 5 spec) + BETA</h3>
+    <ul><li>AI dashboard cards on Home · medicine/test reminders · Emergency QR card (print + lock-screen)</li>
+    <li>Analytics events wired: install → signup → first report → Suno played → shared → ₹49 paid (this IS the scoreboard)</li>
+    <li><b>Closed beta:</b> APK to 60 families (20 per marketer) via Play Console internal track · Play Store listing assets finalised with Ananya</li></ul></div>
+  </div>
+  <div class="phase-block">
+    <div class="pnum">WEEK 6</div>
+    <div><h3>Fix, harden, ship</h3>
+    <ul><li>Beta bug triage (crashes first, confusion second, cosmetics last) · crash reporting on · onboarding polish from watching 5 real beta users (film them — where they hesitate is what we fix)</li>
+    <li>Submit for Play review with a 3–7 day buffer · <b>marketers key off actual store approval, not the plan date</b> · soft-launch day = posters activate + reels fire</li></ul></div>
+  </div>
+
+  <div class="bigbox risk">
+    <h3>Scope shield — how the date survives</h3>
+    <ul>
+      <li><b>Android first.</b> India is overwhelmingly Android; iOS ships in month 2–3 from the same Flutter codebase. One store review process at launch, not two.</li>
+      <li><b>Anything slipping gets cut, not crammed.</b> Priority order if Week 5 is tight: Reader + Voice + Locker + Family are untouchable; ₹49 flow next; QR card and dashboard cards can slide 2 weeks if they must.</li>
+      <li><b>No new ideas enter the sprint.</b> Every new idea goes to the Wave-2 list. The sprint only shrinks, never grows.</li>
+      <li><b>After launch: weeks 7–10 alternate fix-weeks and Wave-2 build-weeks.</b> We never ship new features into a crashing app.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ TAB 7: SCOREBOARD ============ -->
+<section class="page" id="score">
+  <p class="eyebrow">How we know it's working — in plain words</p>
+  <h2>The scoreboard: six numbers, one sheet, every Monday</h2>
+  <p class="lede">North star = <b>reports explained per week</b>. Not downloads, not followers — explained reports. Everything below exists to move that one number.</p>
+
+  <div class="tablewrap">
+  <table class="vs">
+    <tr><th>#</th><th>Number</th><th>Plain meaning</th><th>Target</th></tr>
+    <tr><td>1</td><td>Installs (by code)</td><td>How many phones — and exactly which poster/reel brought each one</td><td>1,500 → 5,000 → 10,000 (D30/60/90)</td></tr>
+    <tr><td>2</td><td>Activation</td><td>% of installs that upload their FIRST report — the moment MedRed becomes real</td><td>≥ 40%</td></tr>
+    <tr><td>3</td><td>Suno rate</td><td>% of explanations where the voice note is played — proof we reached the elders</td><td>≥ 50%</td></tr>
+    <tr><td>4</td><td>Share rate</td><td>% of explanations forwarded on WhatsApp — our free marketing engine</td><td>≥ 20%</td></tr>
+    <tr><td>5</td><td>₹49 conversions</td><td>Paid doctor verifications — trust, revenue, and doctor earnings in one number</td><td>≈ 4% of activated users · ~400 by Day 90</td></tr>
+    <tr><td>6</td><td>D7 retention</td><td>% who come back within a week — the difference between a tool and a habit</td><td>≥ 25% at launch, growing with reminders</td></tr>
+  </table>
+  </div>
+
+  <div class="bigbox">
+    <h3>If a number misses — the response playbook (fix the machine, not the mood)</h3>
+    <ul>
+      <li><b>Installs low at a specific code</b> → the poster location is wrong, not the product. Move it. Top-5 codes get doubled down; bottom-5 get relocated every two weeks.</li>
+      <li><b>Installs fine, activation low</b> → onboarding problem, NOT a marketing problem. Prashant watches 5 real users open the app; fix where they hesitate. More marketing on a leaky bucket is money in the drain.</li>
+      <li><b>Activation fine, ₹49 low</b> → the offer moment or the price story is off. Test copy first ("do chai se sasta"), placement second. Never discount below ₹49 — the price IS the positioning.</li>
+      <li><b>Share rate low</b> → make sharing more visible on the result screen + Ananya runs a "bhejo jise zaroorat hai" push. Sharing is a button problem before it's a culture problem.</li>
+      <li><b>Retention low</b> → reminders aren't landing. Check notification permissions flow — the fix is usually one screen.</li>
+    </ul>
+  </div>
+
+  <div class="bigbox blue">
+    <h3>Day-90 — the definition of success (the go/no-go review)</h3>
+    <p>We gather (on a call) and check five boxes: <b>10,000 installs · ≥ 4,000 activated · ≈ 400 paid ₹49 events · ≥ 40 active QR points per state · 6+ panel doctors actually earning.</b> Five ticks = Wave 3 (marketplace + first hospital pilot) gets the green light and we plan the next state. Three or four ticks = we fix before we grow. This discipline — prove the loop, then scale — is the whole lesson of the ₹35,000-crore health-app graveyard.</p>
+  </div>
+
+  <div class="bigbox amber">
+    <h3>This week — the first seven days, per person</h3>
+    <ul>
+      <li><b>Prashant:</b> run Phase 2 spec (locker + family) · apply for WhatsApp Business API · set up the tracking sheet + Monday call invite.</li>
+      <li><b>Ananya:</b> lock the Instagram handle + bio · post reel #1 · open the "MedRed Parivaar" WhatsApp community with the first 20 people she knows.</li>
+      <li><b>Ria:</b> start the 100-point map sheet for MP · first 10 calls/visits · list 5 doctor candidates for the panel.</li>
+      <li><b>Aman:</b> same for Odisha: map sheet started · first 10 calls/visits · language notebook opened.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>MedRed Execution Briefing 03 · 08 JUL 2026 · 4 people · 6 weeks · 10,000 families · Confidential — team only</footer>
+
+<script>
+const nav=document.getElementById('nav');
+nav.addEventListener('click',e=>{
+  const b=e.target.closest('button');if(!b)return;
+  nav.querySelectorAll('button').forEach(x=>x.classList.remove('active'));
+  b.classList.add('active');
+  document.querySelectorAll('section.page').forEach(s=>s.classList.remove('active'));
+  document.getElementById(b.dataset.p).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+</script>
+</body>
+</html>
